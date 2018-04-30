@@ -134,7 +134,7 @@
 
                                 @else
 
-                                    <a class="dropdown-item" href="#">Create Profile</a>
+                                    <a class="dropdown-item" href="{{ route('profile.create', ['user_id' => Auth::user()->id]) }}">Create Profile</a>
 
                                 @endif
 
@@ -179,8 +179,15 @@
 
 
     <main class="py-4">
+        <div class="col 12">
+        @include('flash.error')
+
+        @include('flash.messages')
+
+        @include('flash.status')
 
         @yield('content')
+        </div>
 
     </main>
 
