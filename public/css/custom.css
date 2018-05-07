@@ -1,0 +1,90 @@
+nav.navbar {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.user_panel {
+    background-color: #00a65a!important;
+    color: white;
+    padding: 0!important;
+    cursor: pointer!important;
+
+
+}
+.user_panel .num_panel {
+    width: 70%;
+}
+.user {
+    background-color: #00974c;
+    width: 30%;
+    padding: 30px 0;
+    height: 100%;
+    text-align: center;
+}
+.user i {
+    font-size: 100px;
+}
+
+.admin_panel {
+    background-color: #f39c12!important;
+    color: white;
+    padding: 0!important;
+    cursor: pointer!important;
+}
+
+
+.admin_panel .num_panel {
+    width: 70%;
+}
+.admin {
+    background-color: #dc8812;
+    width: 30%;
+    padding: 30px 0;
+    height: 100%;
+    text-align: center;
+}
+.admin i {
+    font-size: 100px;
+}
+
+.questions_panel {
+    background-color: #00c0ef!important;
+    color: white;
+    padding: 0!important;
+    cursor: pointer!important;
+}
+
+.questions_panel .num_panel {
+    width: 70%;
+}
+.questions_panel .progress {
+    background-color: #00a7d5;
+    height: 3px;
+}
+.questions {
+
+    width: 30%;
+    text-align: center;
+    height: 100%!important;
+}
+.questions i {
+    font-size: 100px;
+}
+.answer_num {
+    font-size: 32px!important;
+    font-weight: 500;
+}
+a.btn {
+    padding-bottom: 2px!important;
+    padding-top: 2px!important;
+}
+table {
+    border: 1px solid #f2f2f2;
+}
+.question {
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.answers {
+    max-height: 600px!important;
+    overflow-y: auto;
+}
