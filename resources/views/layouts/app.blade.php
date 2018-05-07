@@ -5,40 +5,26 @@
 <head>
 
     <meta charset="utf-8">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-
     <!-- CSRF Token -->
-
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-
-
-    <!-- Scripts -->
-
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-
-
     <!-- Fonts -->
-
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
-
-
     <!-- Styles -->
+    <link href="{{ asset('/css/bootstrap4.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/fontawesome4.7.0.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Scripts -->
+    <script src="{{ asset('/js/app.js') }}"></script>
+    {{--<script src="{{ asset('/js/jquery3.3.1.js') }}"></script>--}}
+    {{--<script src="{{ asset('/js/popper.min.js') }}"></script>--}}
+    {{--<script src="{{ asset('/js/bootstrap4.min.js') }}"></script>--}}
 
 </head>
 
@@ -47,12 +33,7 @@
 <div id="app">
 
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-
         <div class="container">
-
-
-
-
 
             @guest
 
@@ -73,20 +54,11 @@
             @endguest
 
 
-
-
-
-
-
-
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
                 <span class="navbar-toggler-icon"></span>
 
             </button>
-
-
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -94,11 +66,7 @@
 
                 <ul class="navbar-nav mr-auto">
 
-
-
                 </ul>
-
-
 
                 <!-- Right Side Of Navbar -->
 
@@ -122,15 +90,11 @@
 
                             </a>
 
-
-
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                                 @if (Auth::user()->profile)
 
                                     <a class="dropdown-item" href="{{ route('profile.show', ['user_id' => Auth::user()->id,'profile_id' => Auth::user()->profile->id]) }}">My Profile</a>
-
-
 
                                 @else
 
@@ -138,23 +102,20 @@
 
                                 @endif
 
-
-
-
-
+                                @if((Auth::user()->role) == 'admin')
+                                    <a href="/admin" class="dropdown-item">Admin panel</a>
+                                @endif
+                                @if((Auth::user()->role) == 'superadmin')
+                                    <a href="/superadmin" class="dropdown-item">Admin panel</a>
+                                @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}"
 
                                    onclick="event.preventDefault();
-
                                                      document.getElementById('logout-form').submit();">
 
                                     {{ __('Logout') }}
 
                                 </a>
-
-
-
-
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 
@@ -173,26 +134,22 @@
             </div>
 
         </div>
-
     </nav>
 
-
-
     <main class="py-4">
-        <div class="col 12">
-        @include('flash.error')
+        <div class="w-100">
+            @include('flash.error')
 
-        @include('flash.messages')
+            @include('flash.messages')
 
-        @include('flash.status')
+            @include('flash.status')
 
-        @yield('content')
+            @yield('content')
         </div>
-
     </main>
-
 </div>
 
 </body>
 
+@yield('scripts')
 </html>
