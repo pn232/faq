@@ -34,4 +34,24 @@ class UserTest extends TestCase
         $user = factory(\App\User::class)->make();
         $this->assertTrue(is_object($user->profile()->get()));
     }
+
+    public function Create_an_access_token()
+    {
+        $user = factory(\App\User::class)->create();
+
+        $token = $user->createToken('TestToken')->accessToken;
+
+        $header = [];
+        $header['Accept'] = 'application/json';
+        $header['Authorization'] = 'Bearer '.$token;
+
+
+        $response = $this->call($this->json('GET', '/home', [], $header)
+            ->seeJson([
+                'id' => $user->id,
+                'email' => $user->email,
+                'password' => $user->password,
+            ]));
+        $response->assertStatus(200);
+    }
 }
