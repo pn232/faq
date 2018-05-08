@@ -14,4 +14,4 @@ Uer Stories:
 5. As an admin, one should be able to view the adminpanel. 
 
 Youtube link to my working project:
-https://www.youtube.com/edit?o=U&video_id=bnM21bNsQJs
+https://www.youtube.com/watch?v=acbA0bjTrDE&feature=youtu.be
